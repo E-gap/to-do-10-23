@@ -3,6 +3,7 @@
   padding: 10px 10px;
   border: 3px solid greenyellow;
   border-radius: 20px;
+  margin-bottom: 30px;
 }
 
 .nameStatus {
@@ -36,6 +37,10 @@
 .buttons {
   display: flex;
   justify-content: space-around;
+}
+
+.labelDescription {
+  padding-left: 10px;
 }
 
 .description {

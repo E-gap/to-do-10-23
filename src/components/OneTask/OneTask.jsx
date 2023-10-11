@@ -34,7 +34,7 @@ const OneTask = ({ oneTask }) => {
   return (
     <li className={css.oneTask}>
       <div className={css.nameStatus}>
-        <p className={css.label}>Name: {name}</p>
+        <p className={`${css.label} ${css.labelName}`}>Name: {name}</p>
         <p className={`${css.status} ${css.label}`}>
           Is done:
           <input
@@ -49,7 +49,9 @@ const OneTask = ({ oneTask }) => {
       </div>
       {oneTask.description.length > 0 && (
         <div>
-          <p className={css.label}>Description: </p>
+          <p className={`${css.label} ${css.labelDescription}`}>
+            Description:{" "}
+          </p>
           <p className={css.description}>{description}</p>
         </div>
       )}
