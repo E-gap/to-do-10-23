@@ -26,7 +26,6 @@ const tasksSlice = createSlice({
       });
     },
     changeTask(state, action) {
-      console.log(action.payload);
       state.allTasks = state.allTasks.map((task) => {
         if (task.id === action.payload.id) {
           return action.payload;

@@ -28,8 +28,6 @@ const MainPage = () => {
   const totalDoneTasks = allTasks.filter((task) => task.status).length;
   const totalNotDoneTasks = allTasks.filter((task) => !task.status).length;
 
-  console.log(totalAllTasks, totalDoneTasks, totalNotDoneTasks);
-
   const handleButton = () => {
     setIsModalWindowOpen(true);
     setTypeOperation("add");
