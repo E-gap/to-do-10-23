@@ -1,17 +1,24 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import css from "./FormAddTask.module.css";
 import PropTypes from "prop-types";
-// import { useSelector } from "react-redux";
 
-// import { selectUserData } from "../../redux/selectors";
 // import Notiflix from "notiflix";
 // import { useState } from "react";
 import { TaskSchema } from "../../utils/TaskSchema";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../redux/tasks/tasksSlice";
 
 function FormAddTask({ handleAddTask }) {
+  const dispatch = useDispatch();
+
   const submitForm = (values) => {
-    console.log(values);
+    const taskData = {
+      ...values,
+      id: Date.now(),
+    };
+
     handleAddTask();
+    dispatch(addTask(taskData));
   };
 
   return (

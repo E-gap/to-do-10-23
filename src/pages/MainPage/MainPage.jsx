@@ -5,10 +5,14 @@ import Button from "../../components/Button/Button";
 import ModalWindow from "../../components/ModalWindow/ModalWindow";
 import FormAddTask from "../../components/FormAddTask/FormAddTask";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectAllTasks } from "../../redux/selectors";
 
 const MainPage = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [typeOperation, setTypeOperation] = useState(null);
+
+  const allTasks = useSelector(selectAllTasks);
 
   const handleButton = () => {
     setIsModalWindowOpen(true);
@@ -16,7 +20,6 @@ const MainPage = () => {
   };
 
   const handleAddTask = () => {
-    console.log("add");
     setIsModalWindowOpen(false);
   };
 
@@ -25,7 +28,7 @@ const MainPage = () => {
       <Container>
         <h1 className={css.headLine}>your tasks</h1>
         <Button text="Add task" view="addtask" handleButton={handleButton} />
-        <TasksList />
+        <TasksList allTasks={allTasks} />
       </Container>
       {isModalWindowOpen && (
         <ModalWindow setIsModalWindowOpen={setIsModalWindowOpen}>
