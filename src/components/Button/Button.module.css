@@ -1,0 +1,34 @@
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  font-size: var(--middle-font-size);
+  font-weight: var(--min-font-weight);
+  border: none;
+}
+
+button:hover,
+button:focus {
+  background-color: yellow;
+  color: black;
+}
+
+.change {
+  background-color: green;
+  color: white;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+}
+
+.addtask {
+  font-size: 25px;
+  background-color: blueviolet;
+  color: white;
+  margin: 0px auto;
+}

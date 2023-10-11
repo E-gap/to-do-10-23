@@ -1,0 +1,62 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: var(--middle-font-size);
+  font-weight: var(--middle-font-weight);
+  color: var(--modal-text-color);
+}
+input,
+textarea {
+  padding-left: 5px;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.label {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--default-interval);
+}
+
+.label.description,
+.label.name {
+  width: 100%;
+}
+
+.label .descriptionText {
+  height: 100px;
+  resize: none;
+}
+
+.field {
+  font-size: inherit;
+}
+
+.submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.errorValidation {
+  color: red;
+}
+
+.statusLabel {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}

@@ -1,0 +1,11 @@
+.mainPage {
+  font-size: var(--middle-font-size);
+  font-weight: var(--min-font-weight);
+}
+
+.headLine {
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  color: palevioletred;
+}

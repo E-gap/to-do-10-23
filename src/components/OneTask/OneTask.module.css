@@ -1,0 +1,24 @@
+.oneTask {
+  border: 1px solid red;
+  margin-bottom: 10px;
+  padding: 5px 40px;
+}
+
+.nameStatus {
+  display: flex;
+  border: 1px solid blue;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.statusInput {
+  width: 20px;
+  height: 20px;
+  outline: none;
+  margin-left: 10px;
+}
