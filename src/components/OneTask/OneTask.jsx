@@ -34,12 +34,9 @@ const OneTask = ({ oneTask }) => {
   return (
     <li className={css.oneTask}>
       <div className={css.nameStatus}>
-        <div>
-          <p>Name: </p>
-          <p className={css.name}>{name}</p>
-        </div>
-        <p className={css.status}>
-          Status:
+        <p className={css.label}>Name: {name}</p>
+        <p className={`${css.status} ${css.label}`}>
+          Is done:
           <input
             className={css.statusInput}
             type="checkbox"
@@ -50,10 +47,12 @@ const OneTask = ({ oneTask }) => {
           />
         </p>
       </div>
-      <div>
-        <p>Deescription: </p>
-        <p className={css.description}>{description}</p>
-      </div>
+      {oneTask.description.length > 0 && (
+        <div>
+          <p className={css.label}>Description: </p>
+          <p className={css.description}>{description}</p>
+        </div>
+      )}
       <div className={css.buttons}>
         <Button
           text="Change"

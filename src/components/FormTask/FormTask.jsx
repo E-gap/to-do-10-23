@@ -49,7 +49,7 @@ function FormTask({ handleTask, idTask, typeOperation, oneTask }) {
             />
           </label>
           <label className={`${css.label} ${css.statusLabel}`}>
-            Status:
+            Is done:
             <Field name="status" type="checkbox" className={css.checkbox} />
             <ErrorMessage
               name="status"

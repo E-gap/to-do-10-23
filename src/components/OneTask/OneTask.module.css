@@ -12,12 +12,13 @@
   border: 3px solid pink;
   padding: 5px 10px;
   border-radius: 10px;
+  margin-bottom: var(--default-interval);
 }
 
-.name {
-  width: 400px;
-  max-height: 100px;
-  overflow: auto;
+.label {
+  font-weight: var(--middle-font-weight);
+  font-size: var(--middle-font-size);
+  color: blue;
 }
 
 .status {
@@ -43,4 +44,5 @@
   border-radius: 10px;
   max-height: 100px;
   overflow: auto;
+  margin-bottom: var(--default-interval);
 }

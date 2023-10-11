@@ -1,4 +1,5 @@
 button {
+  position: relative;
   cursor: pointer;
   border-radius: 5px;
   display: flex;
@@ -26,8 +27,27 @@ button:focus {
   background-color: red;
 }
 
-.addtask {
+.addtask,
+.isdone,
+.notdone,
+.alltasks {
   font-size: 25px;
   background-color: blueviolet;
   margin: 0px auto;
+}
+
+.total {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -10px;
+  top: -15px;
+  color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: yellow;
 }

@@ -11,12 +11,32 @@ import { selectAllTasks } from "../../redux/selectors";
 const MainPage = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [typeOperation, setTypeOperation] = useState(null);
-
+  const [filter, setFilter] = useState("alltasks");
   const allTasks = useSelector(selectAllTasks);
+
+  const filteredTasks = allTasks.filter((task) => {
+    if (filter === "alltasks") {
+      return true;
+    } else if (filter === "isdone" && task.status) {
+      return true;
+    } else if (filter === "notdone" && !task.status) {
+      return true;
+    } else return false;
+  });
+
+  const totalAllTasks = allTasks.length;
+  const totalDoneTasks = allTasks.filter((task) => task.status).length;
+  const totalNotDoneTasks = allTasks.filter((task) => !task.status).length;
+
+  console.log(totalAllTasks, totalDoneTasks, totalNotDoneTasks);
 
   const handleButton = () => {
     setIsModalWindowOpen(true);
     setTypeOperation("add");
+  };
+
+  const changeFilter = (filter) => {
+    setFilter(filter);
   };
 
   const handleAddTask = () => {
@@ -27,11 +47,32 @@ const MainPage = () => {
     <section className={css.mainPage}>
       <Container>
         <h1 className={css.headLine}>your tasks</h1>
-        <Button text="Add task" view="addtask" handleButton={handleButton} />
-        {allTasks.length > 0 ? (
-          <TasksList allTasks={allTasks} />
+        <div className={css.mainButtons}>
+          <Button text="Add task" view="addtask" handleButton={handleButton} />
+          <Button
+            text="All tasks"
+            view="alltasks"
+            total={totalAllTasks}
+            handleButton={changeFilter}
+          />
+          <Button
+            text="Is done"
+            view="isdone"
+            total={totalDoneTasks}
+            handleButton={changeFilter}
+          />
+          <Button
+            text="Not done"
+            view="notdone"
+            total={totalNotDoneTasks}
+            handleButton={changeFilter}
+          />
+        </div>
+
+        {filteredTasks.length > 0 ? (
+          <TasksList allTasks={filteredTasks} />
         ) : (
-          <p className={css.noTasks}>You don have any tasks</p>
+          <p className={css.noTasks}>You do not have such tasks</p>
         )}
       </Container>
       {isModalWindowOpen && (

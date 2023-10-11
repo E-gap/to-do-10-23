@@ -1,6 +1,12 @@
 .mainPage {
   font-size: var(--middle-font-size);
   font-weight: var(--min-font-weight);
+  width: 700px;
+  margin: 0px auto;
+  border: 3px solid blueviolet;
+  border-radius: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .headLine {
@@ -8,6 +14,7 @@
   font-size: 30px;
   text-align: center;
   color: palevioletred;
+  margin-bottom: 20px;
 }
 
 .noTasks {
@@ -16,4 +23,9 @@
   color: var(--no-items-color);
   text-decoration: underline;
   font-weight: 500;
+}
+
+.mainButtons {
+  display: flex;
+  margin-bottom: var(--default-interval);
 }
