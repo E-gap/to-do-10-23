@@ -15,6 +15,7 @@ textarea {
   padding-left: 5px;
   font-size: inherit;
   font-weight: inherit;
+  font-family: inherit;
 }
 
 .label {
@@ -42,10 +43,12 @@ textarea {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-color: #8a2be2;
+  color: var(--button-default-color);
 }
 
 .errorValidation {
-  color: red;
+  color: var(--error-color);
 }
 
 .statusLabel {

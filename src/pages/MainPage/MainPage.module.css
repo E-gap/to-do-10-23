@@ -9,3 +9,11 @@
   text-align: center;
   color: palevioletred;
 }
+
+.noTasks {
+  font-size: 20px;
+  text-align: center;
+  color: var(--no-items-color);
+  text-decoration: underline;
+  font-weight: 500;
+}

@@ -1,41 +1,46 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import css from "./FormAddTask.module.css";
+import css from "./FormTask.module.css";
 import PropTypes from "prop-types";
-
-// import Notiflix from "notiflix";
-// import { useState } from "react";
 import { TaskSchema } from "../../utils/TaskSchema";
 import { useDispatch } from "react-redux";
 import { addTask } from "../../redux/tasks/tasksSlice";
 
-function FormAddTask({ handleAddTask }) {
+function FormTask({ handleTask, idTask, typeOperation, oneTask }) {
   const dispatch = useDispatch();
 
   const submitForm = (values) => {
-    const taskData = {
-      ...values,
-      id: Date.now(),
-    };
-
-    handleAddTask();
-    dispatch(addTask(taskData));
+    if (typeOperation === "add") {
+      const taskData = {
+        ...values,
+        id: Date.now(),
+      };
+      handleTask();
+      dispatch(addTask(taskData));
+    } else if (typeOperation === "change") {
+      handleTask({ ...values, id: idTask });
+    }
   };
+
+  const initialValues =
+    typeOperation === "change"
+      ? {
+          name: oneTask.name,
+          description: oneTask.description,
+          status: oneTask.status,
+        }
+      : { name: "", description: "", status: false };
 
   return (
     <>
       <Formik
-        initialValues={{
-          name: "",
-          description: "",
-          status: false,
-        }}
+        initialValues={initialValues}
         validationSchema={TaskSchema}
         onSubmit={submitForm}
       >
         <Form className={css.form}>
           <label className={`${css.label} ${css.name}`}>
             Name:
-            <Field name="name" className={css.field} />
+            <Field name="name" className={`${css.field} ${css.nameText}`} />
             <ErrorMessage
               name="name"
               render={(message) => (
@@ -62,7 +67,8 @@ function FormAddTask({ handleAddTask }) {
             />
           </label>
           <button type="submit" className={css.submit}>
-            Add task
+            {typeOperation === "add" && "Add task"}
+            {typeOperation === "change" && "Change task"}
           </button>
         </Form>
       </Formik>
@@ -70,8 +76,11 @@ function FormAddTask({ handleAddTask }) {
   );
 }
 
-export default FormAddTask;
+export default FormTask;
 
-FormAddTask.propTypes = {
-  handleAddTask: PropTypes.func.isRequired,
+FormTask.propTypes = {
+  handleTask: PropTypes.func,
+  idTask: PropTypes.number,
+  typeOperation: PropTypes.string.isRequired,
+  oneTask: PropTypes.object,
 };

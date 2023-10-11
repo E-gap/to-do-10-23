@@ -8,27 +8,26 @@ button {
   font-size: var(--middle-font-size);
   font-weight: var(--min-font-weight);
   border: none;
+  padding: 5px 15px;
+  color: var(--button-default-color);
 }
 
 button:hover,
 button:focus {
   background-color: yellow;
-  color: black;
+  color: var(--button-hover-color);
 }
 
 .change {
   background-color: green;
-  color: white;
 }
 
 .delete {
   background-color: red;
-  color: white;
 }
 
 .addtask {
   font-size: 25px;
   background-color: blueviolet;
-  color: white;
   margin: 0px auto;
 }
